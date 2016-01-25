@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+  <property name="APP_Name" value = "Example"/>
+  <property name="normalPattern" value="%d{yyyy-MM-dd.HH:mm:ss} %-5level [%thread] %logger.%M:%L  %msg%n"/>
+  <property name="plainPattern" value="%d{yyyy-MM-dd.HH:mm:ss} %msg%n"/>
+
+  <contextName>${APP_Name}</contextName>
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>DEBUG</level>
+    </filter>
+    <encoder charset="UTF-8">
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c:%L] [%thread] %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="example" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${catalina.base}/logs/example.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${catalina.base}/logs/example.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>5</maxHistory>
+    </rollingPolicy>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>DEBUG</level>
+    </filter>
+    <encoder charset="UTF-8">
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c:%L] [%thread] %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${catalina.base}/logs/error.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${catalina.base}/logs/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>5</maxHistory>
+    </rollingPolicy>
+    <encoder charset="UTF-8">
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c:%L] [%thread] %m%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+  </appender>
+
+  <logger name="example" level="debug" additivity="false">
+    <appender-ref ref="example"/>
+    <appender-ref ref="console"/>
+    <appender-ref ref="error"/>
+  </logger>
+
+  <root level="info">
+    <appender-ref ref="console"/>
+    <appender-ref ref="error"/>
+  </root>
+</configuration>
