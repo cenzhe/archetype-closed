@@ -1,5 +1,7 @@
 (ns example.controller
-  (:require [example.core :as core])
+  (:require [example.core :as core]
+            [clojure.tools.nrepl.server :as nrepl]
+            [cider.nrepl :as cider-nrepl])
   (:import org.springframework.stereotype.Controller
            (org.springframework.web.bind.annotation
             RequestMapping
@@ -25,3 +27,6 @@
 (defn -greetings
   [this ^HttpServletRequest request]
   (str "Greetings, " (.getParameter request "name") "!"))
+
+(when-not *compile-files*
+  (defonce server (nrepl/start-server :port 4005 :handler cider-nrepl/cider-nrepl-handler)))
