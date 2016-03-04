@@ -1,4 +1,4 @@
-(ns example.core)
+(ns ${package}.core)
 
 (def fortune-cookies
   ["Happy Hacking!"

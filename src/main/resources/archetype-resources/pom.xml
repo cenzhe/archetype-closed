@@ -52,7 +52,7 @@
       <dependency>
         <groupId>cider</groupId>
         <artifactId>cider-nrepl</artifactId>
-        <version>0.10.1</version>
+        <version>0.10.2</version>
       </dependency>
 
       <dependency>
@@ -180,7 +180,7 @@
   </dependencies>
 
   <build>
-    <finalName>example</finalName>
+    <finalName>${artifactId}</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -1,5 +1,5 @@
-(ns example.controller
-  (:require [example.core :as core]
+(ns ${package}.controller
+  (:require [${package}.core :as core]
             [clojure.tools.nrepl.server :as nrepl]
             [cider.nrepl :as cider-nrepl])
   (:import org.springframework.stereotype.Controller
@@ -10,7 +10,7 @@
            javax.servlet.http.HttpServletRequest))
 
 (gen-class
- :name ^{Controller ""} example.controller.TestController
+ :name ^{Controller ""} ${package}.controller.TestController
  :methods [[^{RequestMapping {:value ["/hello"]
                               :method [RequestMethod/GET]}
               ResponseBody {}}

@@ -15,9 +15,9 @@ cd archetype-closed
 mvn install
 # navigate to your workspace
 cd ~/workspace
-mvn archetype:generate -DarchetypeGroupId=com.github.cenzhe -DarchetypeArtifactId=archetype-closed -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=your.groupId -DartifactId=your.artifactId -Dversion=your.version
+mvn archetype:generate -DarchetypeGroupId=com.github.cenzhe -DarchetypeArtifactId=archetype-closed -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=your.groupId -DartifactId=your.artifactId -Dversion=your.version -Dpackage=your.package.namespace
 ```
 
-Substitute `1.0-SNAPSHOT` with the last release version of this repo, and substitute `your.groupId`, `your.artifactId` and `your.version` with your choice.
+Substitute `1.0-SNAPSHOT` with the last release version of this repo, and substitute `your.groupId`, `your.artifactId`, `your.version`, `your.package.namespace` with your choice.
 
 Once the upload is done, simply executing the last line would be enough to create a working webapp project.

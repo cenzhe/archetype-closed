@@ -1,4 +1,4 @@
-(ns example.ctx
+(ns ${package}.ctx
   (:require [clojure.tools.logging :as log])
   (:import (org.springframework.context
             ApplicationContextAware
@@ -7,7 +7,7 @@
 (defonce ctx (atom nil))
 
 (gen-class
- :name example.ContextProvider
+ :name ${package}.ContextProvider
  :implements [org.springframework.context.ApplicationContextAware])
 
 (defn -setApplicationContext

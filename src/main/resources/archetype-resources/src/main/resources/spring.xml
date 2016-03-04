@@ -13,8 +13,8 @@
   <context:property-placeholder location="classpath*:*.properties" file-encoding="utf8" ignore-unresolvable="true"/>
 
   <!-- WARN: contextProvider must come before any other bean or component-scan -->
-  <bean id="contextProvider" class="example.ContextProvider"/>
+  <bean id="contextProvider" class="${package}.ContextProvider"/>
 
-  <context:component-scan base-package="example"/>
+  <context:component-scan base-package="${package}"/>
 </beans>
 

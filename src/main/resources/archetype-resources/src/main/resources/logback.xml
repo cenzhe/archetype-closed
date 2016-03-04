@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true">
-  <property name="APP_Name" value = "Example"/>
+  <property name="APP_Name" value = "${artifactId}"/>
   <property name="normalPattern" value="%d{yyyy-MM-dd.HH:mm:ss} %-5level [%thread] %logger.%M:%L  %msg%n"/>
   <property name="plainPattern" value="%d{yyyy-MM-dd.HH:mm:ss} %msg%n"/>
 
@@ -15,10 +15,10 @@
     </encoder>
   </appender>
 
-  <appender name="example" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <File>${catalina.base}/logs/example.log</File>
+  <appender name="${artifactId}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${catalina.base}/logs/${artifactId}.log</File>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${catalina.base}/logs/example.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>${catalina.base}/logs/${artifactId}.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>5</maxHistory>
     </rollingPolicy>
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -43,8 +43,8 @@
     </filter>
   </appender>
 
-  <logger name="example" level="debug" additivity="false">
-    <appender-ref ref="example"/>
+  <logger name="${package}" level="debug" additivity="false">
+    <appender-ref ref="${artifactId}"/>
     <appender-ref ref="console"/>
     <appender-ref ref="error"/>
   </logger>
